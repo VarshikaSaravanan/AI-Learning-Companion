@@ -1,0 +1,66 @@
+/* 
+   assets/styles.css
+   Premium styling for the AI Learning Companion
+*/
+
+/* Import modern Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;700&display=swap');
+
+/* Apply global font */
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Headings with premium font and gradient */
+h1, h2, h3 {
+    font-family: 'Outfit', sans-serif;
+}
+
+h1 {
+    background: linear-gradient(90deg, #bb86fc 0%, #3700b3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+/* Make buttons pop with a gradient hover effect */
+.stButton > button {
+    border-radius: 8px;
+    background: linear-gradient(135deg, #6200ea 0%, #3700b3 100%);
+    color: white;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(98, 0, 234, 0.3);
+    background: linear-gradient(135deg, #7c4dff 0%, #6200ea 100%);
+    color: white;
+}
+
+/* Flashcard expander styling */
+.streamlit-expanderHeader {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #bb86fc;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+/* Custom card effect for quiz containers */
+div[data-testid="stVerticalBlock"] > div > div[data-testid="stVerticalBlock"] {
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar styling tweak */
+[data-testid="stSidebar"] {
+    background-color: #121212;
+    border-right: 1px solid rgba(255,255,255,0.05);
+}

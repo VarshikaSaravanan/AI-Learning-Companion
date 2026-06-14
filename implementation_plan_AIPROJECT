@@ -1,0 +1,44 @@
+# Phase 8: FAISS Integration Implementation Plan
+
+This plan details the implementation of Phase 8, which is the final piece of the core RAG setup. We need to store the embedding vectors generated in Phase 7 into a persistent Vector Database so that we can search and retrieve them later. We will use FAISS (Facebook AI Similarity Search) via LangChain.
+
+## User Review Required
+
+Please review the proposed approach for integrating FAISS.
+> [!IMPORTANT]
+> I propose creating a `VectorStoreManager` class in `src/vector_store.py`. This module will manage the FAISS index, persisting it to the `vectorstore/` directory on disk so that uploaded PDFs remain available across app restarts. We will use the existing `EmbeddingEngine` to supply the vectors.
+
+## Open Questions
+
+> [!WARNING]
+> 1. LangChain's FAISS implementation allows saving to and loading from a folder (e.g., `vectorstore/index`). Should we create a single global index for all uploaded PDFs, or separate indices per PDF? (For simplicity, I recommend a single global index for now).
+> 2. Are you ready for me to build out the retrieval mechanisms in Phase 9 after this?
+
+## Proposed Changes
+
+### Core Modules
+
+#### [NEW] [vector_store.py](file:///g:/AI%20Learning%20Companion/src/vector_store.py)
+Create `src/vector_store.py`.
+**Responsibilities:**
+- Define `VectorStoreManager`.
+- Provide a method to add documents (`add_documents(documents: list[Document])`).
+- Provide a method to retrieve the vector store instance (`get_vectorstore()`).
+- Automatically save and load the FAISS index from `settings.vectorstore_dir`.
+
+### Testing
+
+#### [NEW] [test_phase8.py](file:///g:/AI%20Learning%20Companion/test_phase8.py)
+Create a standalone verification script `test_phase8.py`.
+**Responsibilities:**
+- Create mock documents.
+- Use `VectorStoreManager` to add them to FAISS.
+- Perform a simple semantic search query (e.g., `.similarity_search("AI")`).
+- Verify that the relevant chunks are returned.
+
+## Verification Plan
+
+### Manual Verification
+1. Run `python test_phase8.py`.
+2. Ensure that it successfully searches and retrieves the relevant mock document.
+3. Check the `vectorstore/` directory to confirm the index files (`index.faiss` and `index.pkl`) were created.
