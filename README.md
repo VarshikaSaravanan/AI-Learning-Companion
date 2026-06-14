@@ -5,6 +5,9 @@ A fully **local**, offline-capable AI-powered learning assistant that helps stud
 > No cloud APIs. No OpenAI. No Gemini. All inference runs locally via **Ollama**.
 
 ---
+<img width="1911" height="550" alt="image" src="https://github.com/user-attachments/assets/dea66c76-91f2-42eb-a9ca-2e7a3f530c3b" />
+<img width="1897" height="651" alt="image" src="https://github.com/user-attachments/assets/61b3be77-9c20-490e-85ed-d95c38f0929d" />
+<img width="1902" height="522" alt="image" src="https://github.com/user-attachments/assets/4ae5145b-a9a9-46ca-9f11-30e415ef1a60" />
 
 ## Features (Roadmap)
 
